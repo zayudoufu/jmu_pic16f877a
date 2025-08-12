@@ -1,0 +1,17 @@
+___ftneg: CODE, 3442 0 14
+___awdiv: CODE, 3853 0 118
+___ftpack: CODE, 3971 0 125
+_main: CODE, 21 0 690
+___ftadd: CODE, 1100 0 326
+_DELAY: CODE, 3503 0 28
+_div: CODE, 711 0 389
+_ENABLE1: CODE, 3470 0 14
+_usart_seve: CODE, 3667 0 76
+_ENABLE: CODE, 3456 0 14
+___ftmul: CODE, 1426 0 238
+___awtoft: CODE, 3575 0 44
+___wmul: CODE, 3531 0 44
+___fttol: CODE, 1864 0 166
+___ftge: CODE, 3743 0 110
+___ftdiv: CODE, 1664 0 200
+Total: 2596

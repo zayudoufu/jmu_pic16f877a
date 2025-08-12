@@ -1,0 +1,276 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\dat\en_msgs.txt -cs \
+  -h+sy2.sym -z -Q16F877A -ol.obj -Msy2.map -E1 -ACONST=00h-0FFhx32 \
+  -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 \
+  -ASTRING=00h-0FFhx32 -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
+  -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ACOMMON=070h-07Fh \
+  -ASFR0=00h-01Fh -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pfunctab=CODE \
+  -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
+  -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
+  -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
+  startup.obj sy2.obj 
+
+Object code version is 3.10
+
+Machine type is 16F877A
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+startup.obj     end_init                              0        0        3        0       0
+sy2.obj         config                             2007     2007        1     400E       0
+                text97                              6AB      6AB       1A      D56       0
+                text96                              654      654        E      CA8       0
+                text95                              662      662        E      CC4       0
+                maintext                            6C5      6C5      13B      D8A       0
+                cstackCOMMON                         76       76        3       70       1
+                inittext                            680      680       13      D00       0
+                dataBANK0                            20       20       10       20       1
+                bssCOMMON                            70       70        6       70       1
+                cinit                               693      693       18      D26       0
+                idataBANK0                          670      670       10      CE0       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CONST          
+
+        CLASS   CODE           
+                end_init                              0        0        3         0
+                text97                              6AB      6AB       1A         0
+                text96                              654      654        E         0
+                text95                              662      662        E         0
+                maintext                            6C5      6C5      13B         0
+                inittext                            680      680       13         0
+                cinit                               693      693       18         0
+                idataBANK0                          670      670       10         0
+
+        CLASS   STRCODE        
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+                dataBANK0                            20       20       10         1
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   COMMON         
+                cstackCOMMON                         76       76        3         1
+                bssCOMMON                            70       70        6         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+                config                             2007     2007        1         0
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000003  000003         0       0  CODE        2
+                dataBANK0                      000020  000010  000030        20       1  BANK0       1
+                bssCOMMON                      000070  000009  000079        70       1  COMMON      1
+                text96                         000654  00000E  000662       CA8       0  CODE        2
+                text95                         000662  00000E  000670       CC4       0  CODE        2
+                idataBANK0                     000670  000010  000680       CE0       0  CODE        2
+                inittext                       000680  000013  000693       D00       0  CODE        2
+                cinit                          000693  000018  0006AB       D26       0  CODE        2
+                text97                         0006AB  00001A  0006C5       D56       0  CODE        2
+                maintext                       0006C5  00013B  000800       D8A       0  CODE        2
+                config                         002007  000001  002008      400E       0  CONFIG      2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0030-006F             40           1
+        BANK1            00A0-00EF             50           1
+        BANK2            0110-016F             60           1
+        BANK3            0190-01EF             60           1
+        CODE             0003-0653            651           2
+                         0800-1FFF            800
+        COMMON           0079-007D              5           1
+        CONST            0003-0653            100           2
+                         0800-1FFF            100
+        EEDATA           2100-21FF            100           2
+        ENTRY            0003-0653            100           2
+                         0800-1FFF            100
+        IDLOC            2000-2003              4           2
+        RAM              0030-006F             40           1
+                         00A0-00EF             50
+                         0110-016F             60
+                         0190-01EF             60
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        SFR2             0100-010F             10           1
+        SFR3             0180-018F             10           1
+        STRCODE          0003-0653            651           2
+                         0800-1FFF           1800
+        STRING           0003-0653            100           2
+                         0800-1FFF            100
+
+                                  Symbol Table
+
+??_DELAY              cstackCOMMON 0076
+??_ENABLE             cstackCOMMON 0078
+??_ENABLE1            cstackCOMMON 0078
+??_main               cstackCOMMON 0078
+?_DELAY               cstackCOMMON 0076
+?_ENABLE              cstackCOMMON 0076
+?_ENABLE1             cstackCOMMON 0076
+?_main                cstackCOMMON 0076
+DELAY@i               cstackCOMMON 0076
+_ADCON1               (abs)        009F
+_CARRY                (abs)        0018
+_DELAY                text97       06AB
+_EEADR                (abs)        010D
+_EECON1               (abs)        018C
+_EECON2               (abs)        018D
+_EEDATA               (abs)        010C
+_ENABLE               text96       0654
+_ENABLE1              text95       0662
+_GIE                  (abs)        005F
+_PORTB                (abs)        0006
+_PORTD                (abs)        0008
+_RA1                  (abs)        0029
+_RA3                  (abs)        002B
+_RA4                  (abs)        002C
+_RA5                  (abs)        002D
+_RD                   (abs)        0C60
+_RE2                  (abs)        004A
+_TABLE                dataBANK0    0020
+_TRISA                (abs)        0085
+_TRISB                (abs)        0086
+_TRISD                (abs)        0088
+_WR                   (abs)        0C61
+_WREN                 (abs)        0C62
+__Habs1               abs1         0000
+__Hbank0              bank0        0000
+__Hbank1              bank1        0000
+__Hbank2              bank2        0000
+__Hbank3              bank3        0000
+__HbssCOMMON          bssCOMMON    0000
+__Hcinit              cinit        0000
+__Hclrtext            clrtext      0000
+__Hcode               code         0000
+__Hcommon             common       0000
+__Hconfig             config       2008
+__HcstackCOMMON       cstackCOMMON 0000
+__HdataBANK0          dataBANK0    0000
+__Heeprom_data        eeprom_data  0000
+__Hend_init           end_init     0003
+__Hfunctab            functab      0000
+__HidataBANK0         idataBANK0   0000
+__Hidloc              idloc        0000
+__Hinit               init         0000
+__Hinittext           inittext     0000
+__Hintentry           intentry     0000
+__Hmaintext           maintext     0000
+__Hpowerup            powerup      0000
+__Hram                ram          0000
+__Hreset_vec          reset_vec    0000
+__Hsfr0               sfr0         0000
+__Hsfr1               sfr1         0000
+__Hsfr2               sfr2         0000
+__Hsfr3               sfr3         0000
+__Hstrings            strings      0000
+__Htext               text         0000
+__Labs1               abs1         0000
+__Lbank0              bank0        0000
+__Lbank1              bank1        0000
+__Lbank2              bank2        0000
+__Lbank3              bank3        0000
+__LbssCOMMON          bssCOMMON    0000
+__Lcinit              cinit        0000
+__Lclrtext            clrtext      0000
+__Lcode               code         0000
+__Lcommon             common       0000
+__Lconfig             config       2007
+__LcstackCOMMON       cstackCOMMON 0000
+__LdataBANK0          dataBANK0    0000
+__Leeprom_data        eeprom_data  0000
+__Lend_init           end_init     0000
+__Lfunctab            functab      0000
+__LidataBANK0         idataBANK0   0000
+__Lidloc              idloc        0000
+__Linit               init         0000
+__Linittext           inittext     0000
+__Lintentry           intentry     0000
+__Lmaintext           maintext     0000
+__Lpowerup            powerup      0000
+__Lram                ram          0000
+__Lreset_vec          reset_vec    0000
+__Lsfr0               sfr0         0000
+__Lsfr1               sfr1         0000
+__Lsfr2               sfr2         0000
+__Lsfr3               sfr3         0000
+__Lstrings            strings      0000
+__Ltext               text         0000
+__S0                  (abs)        2008
+__S1                  (abs)        0079
+__S2                  (abs)        0000
+__end_of_DELAY        text97       06C5
+__end_of_ENABLE       text96       0662
+__end_of_ENABLE1      text95       0670
+__end_of_main         maintext     0800
+__pbssCOMMON          bssCOMMON    0070
+__pcstackCOMMON       cstackCOMMON 0076
+__pdataBANK0          dataBANK0    0020
+__pidataBANK0         idataBANK0   0670
+__pmaintext           maintext     06C5
+__ptext95             text95       0662
+__ptext96             text96       0654
+__ptext97             text97       06AB
+__ptext98             text98       0000
+__size_of_DELAY       (abs)        0000
+__size_of_ENABLE      (abs)        0000
+__size_of_ENABLE1     (abs)        0000
+__size_of_main        (abs)        0000
+_a                    bssCOMMON    0070
+_adh                  bssCOMMON    0071
+_adl                  bssCOMMON    0072
+_b                    bssCOMMON    0073
+_exit                 init         0000
+_main                 maintext     06C5
+_nRBPU                (abs)        040F
+_preres               bssCOMMON    0074
+_result               bssCOMMON    0075
+btemp                 (abs)        007E
+end_of_initialization cinit        06A7
+init_fetch            inittext     0680
+init_ram              inittext     0684
+intlevel0             functab      0000
+intlevel1             functab      0000
+intlevel2             functab      0000
+intlevel3             functab      0000
+intlevel4             functab      0000
+intlevel5             functab      0000
+reset_vec             reset_vec    0000
+start                 init         0000
+start_initialization  cinit        0693
+wtemp0                (abs)        007E
