@@ -1,0 +1,24 @@
+___ftneg: CODE, 2731 0 14
+_keyboard_scan: CODE, 3678 0 138
+_lcd_command: CODE, 3956 0 140
+_lcd_putc: CODE, 2721 0 10
+_lcd_puts: CODE, 2816 0 44
+_lcd_putnumf: CODE, 21 0 737
+_lcd_data: CODE, 3816 0 140
+_set_pwm_frequency: CODE, 3436 0 117
+___ftpack: CODE, 3553 0 125
+_main: CODE, 758 0 327
+___ftadd: CODE, 1085 0 326
+___lltoft: CODE, 2965 0 54
+___lmul: CODE, 3154 0 76
+_lcd_clear: CODE, 2761 0 18
+___lldiv: CODE, 3324 0 112
+_isr: CODE, 3083 0 71
+_delay_ms: CODE, 2860 0 52
+___ftmul: CODE, 1411 0 238
+___llmod: CODE, 3230 0 94
+___fttol: CODE, 1849 0 166
+_lcd_init: CODE, 2912 0 53
+___bmul: CODE, 2015 0 26
+___ftdiv: CODE, 1649 0 200
+Total: 3278

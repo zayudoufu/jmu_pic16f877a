@@ -1,0 +1,81 @@
+     1: #include <pic.h>
+     2: __CONFIG(0xFF29);
+     3: 
+     4: char adh, adl;
+     5: static volatile char table[16] = {0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37,
+     6:                                  0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46};
+     7: 
+     8: void DELAY() {
+     9:     unsigned int i;
+    10:     for (i = 999; i > 0; i--);
+    11: }
+    12: 
+    13: void ENABLE() {
+    14:     RA5 = 0;
+    15:     RA4 = 0;
+    16:     RA3 = 0;
+    17:     DELAY();
+    18:     RA3 = 1;
+    19: }
+    20: 
+    21: void ENABLE1() {
+    22:     RA5 = 1;
+    23:     RA4 = 0;
+    24:     RA3 = 0;
+    25:     DELAY();
+    26:     RA3 = 1;
+    27: }
+    28: 
+    29: void lcd() {
+    30:     TRISD = 0;
+    31:     TRISA = 0;
+    32:     PORTD = 0;
+    33:     DELAY();
+    34:     PORTD = 1;
+    35:     ENABLE();
+    36:     PORTD = 0x38;
+    37:     ENABLE();
+    38:     PORTD = 0x0C;
+    39:     ENABLE();
+    40:     PORTD = 0x06;
+    41:     ENABLE();
+    42: }
+    43: 
+    44: void interrupt tmr2_serve() {
+    45:     TMR2IF = 0;
+    46:     GO_nDONE = 1;
+    47:     while (!ADIF);
+    48:     adh = ADRESH;
+    49:     adl = ADRESL;
+    50:     ADIF = 0;
+    51: }
+    52: 
+    53: void main() {
+    54:     TRISA = 0x0C;  // 设置AN0和AN1为模拟输入
+    55:     lcd();
+    56:     GIE = 1;
+    57:     PEIE = 1;
+    58:     TMR2IE = 1;
+    59:     TMR2IF = 0;
+    60:     ADIF = 0;
+    61:     
+    62:     // 配置ADC
+    63:     ADCON0 = 0b01000001;  // 选择AN0为输入通道，启动ADC
+    64:     ADCON1 = 0b10001110;  // 使用AN1作为基准电压输入
+    65: 
+    66:     T2CON = 0b01111111;
+    67:     PR2 = 255;
+    68: 
+    69:     while (1) {
+    70:         PORTD = 0x80;
+    71:         ENABLE();
+    72:         PORTD = table[adh];
+    73:         ENABLE1();
+    74:         PORTD = table[adl >> 4];
+    75:         ENABLE1();
+    76:         PORTD = table[adl & 0x0F];
+    77:         ENABLE1();
+    78:         PORTD = 'H';
+    79:         ENABLE1();
+    80:     }
+    81: }

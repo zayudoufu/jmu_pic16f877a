@@ -1,0 +1,1333 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
+                                                                                               Thu May 01 00:27:42 2025
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+    45  2007  FF29               	dw 0xFF29 ;#
+    46                           	FNCALL	_main,_lcd
+    47                           	FNCALL	_main,_ENABLE
+    48                           	FNCALL	_main,_ENABLE1
+    49                           	FNCALL	_lcd,_DELAY
+    50                           	FNCALL	_lcd,_ENABLE
+    51                           	FNCALL	_ENABLE1,_DELAY
+    52                           	FNCALL	_ENABLE,_DELAY
+    53                           	FNROOT	_main
+    54                           	FNCALL	intlevel1,_ccp1
+    55                           	global	intlevel1
+    56                           	FNROOT	intlevel1
+    57                           	global	_table
+    58                           psect	idataBANK0,class=CODE,space=0,delta=2
+    59                           global __pidataBANK0
+    60  0176                     __pidataBANK0:
+    61                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+    62                           	line	5
+    63                           
+    64                           ;initializer for _table
+    65  0176  3430               	retlw	030h
+    66  0177  3431               	retlw	031h
+    67  0178  3432               	retlw	032h
+    68  0179  3433               	retlw	033h
+    69  017A  3434               	retlw	034h
+    70  017B  3435               	retlw	035h
+    71  017C  3436               	retlw	036h
+    72  017D  3437               	retlw	037h
+    73  017E  3438               	retlw	038h
+    74  017F  3439               	retlw	039h
+    75  0180  3441               	retlw	041h
+    76  0181  3442               	retlw	042h
+    77  0182  3443               	retlw	043h
+    78  0183  3444               	retlw	044h
+    79  0184  3445               	retlw	045h
+    80  0185  3446               	retlw	046h
+    81                           	global	_TEMP1
+    82                           	global	_TEMP2
+    83                           	global	_Z
+    84                           	global	_x
+    85                           	global	_y
+    86                           	global	_z
+    87                           	global	_a
+    88                           	global	_CCP1CON
+    89  0017                     _CCP1CON	set	23
+    90                           	global	_CCPR1H
+    91  0016                     _CCPR1H	set	22
+    92                           	global	_CCPR1L
+    93  0015                     _CCPR1L	set	21
+    94                           	global	_PORTD
+    95  0008                     _PORTD	set	8
+    96                           	global	_T1CON
+    97  0010                     _T1CON	set	16
+    98                           	global	_TMR1H
+    99  000F                     _TMR1H	set	15
+   100                           	global	_TMR1L
+   101  000E                     _TMR1L	set	14
+   102                           	global	_CARRY
+   103  0018                     _CARRY	set	24
+   104                           	global	_CCP1IF
+   105  0062                     _CCP1IF	set	98
+   106                           	global	_GIE
+   107  005F                     _GIE	set	95
+   108                           	global	_PEIE
+   109  005E                     _PEIE	set	94
+   110                           	global	_RA3
+   111  002B                     _RA3	set	43
+   112                           	global	_RA4
+   113  002C                     _RA4	set	44
+   114                           	global	_RA5
+   115  002D                     _RA5	set	45
+   116                           	global	_TMR1IF
+   117  0060                     _TMR1IF	set	96
+   118                           	global	_TMR1ON
+   119  0080                     _TMR1ON	set	128
+   120                           	global	_ADCON1
+   121  009F                     _ADCON1	set	159
+   122                           	global	_TRISA
+   123  0085                     _TRISA	set	133
+   124                           	global	_TRISD
+   125  0088                     _TRISD	set	136
+   126                           	global	_CCP1IE
+   127  0462                     _CCP1IE	set	1122
+   128                           	global	_TMR1IE
+   129  0460                     _TMR1IE	set	1120
+   130                           	global	_TRISC2
+   131  043A                     _TRISC2	set	1082
+   132                           	global	_EEADR
+   133  010D                     _EEADR	set	269
+   134                           	global	_EEDATA
+   135  010C                     _EEDATA	set	268
+   136                           	global	_EECON1
+   137  018C                     _EECON1	set	396
+   138                           	global	_EECON2
+   139  018D                     _EECON2	set	397
+   140                           	global	_RD
+   141  0C60                     _RD	set	3168
+   142                           	global	_WR
+   143  0C61                     _WR	set	3169
+   144                           	global	_WREN
+   145  0C62                     _WREN	set	3170
+   146                           	file	"sy5.as"
+   147                           	line	#
+   148                           psect cinit,class=CODE,delta=2
+   149                           global start_initialization
+   150  0148                     start_initialization:
+   151                           
+   152                           psect	bitbssCOMMON,class=COMMON,bit,space=1
+   153                           global __pbitbssCOMMON
+   154  03D0                     __pbitbssCOMMON:
+   155  03D0                     _a:
+   156  03D0                            ds      1
+   157                           
+   158                           psect	bssCOMMON,class=COMMON,space=1
+   159                           global __pbssCOMMON
+   160  0076                     __pbssCOMMON:
+   161  0076                     _Z:
+   162  0076                            ds      1
+   163                           
+   164  0077                     _x:
+   165  0077                            ds      1
+   166                           
+   167  0078                     _y:
+   168  0078                            ds      1
+   169                           
+   170  0079                     _z:
+   171  0079                            ds      1
+   172                           
+   173                           psect	bssBANK0,class=BANK0,space=1
+   174                           global __pbssBANK0
+   175  0030                     __pbssBANK0:
+   176  0030                     _TEMP1:
+   177  0030                            ds      2
+   178                           
+   179  0032                     _TEMP2:
+   180  0032                            ds      2
+   181                           
+   182                           psect	dataBANK0,class=BANK0,space=1
+   183                           global __pdataBANK0
+   184  0020                     __pdataBANK0:
+   185                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   186  0020                     _table:
+   187  0020                            ds      16
+   188                           
+   189                           ; Clear objects allocated to BITCOMMON
+   190                           psect cinit,class=CODE,delta=2
+   191  0148  01FA               	clrf	((__pbitbssCOMMON/8)+0)&07Fh
+   192                           ; Clear objects allocated to COMMON
+   193                           psect cinit,class=CODE,delta=2
+   194  0149  01F6               	clrf	((__pbssCOMMON)+0)&07Fh
+   195  014A  01F7               	clrf	((__pbssCOMMON)+1)&07Fh
+   196  014B  01F8               	clrf	((__pbssCOMMON)+2)&07Fh
+   197  014C  01F9               	clrf	((__pbssCOMMON)+3)&07Fh
+   198                           ; Clear objects allocated to BANK0
+   199                           psect cinit,class=CODE,delta=2
+   200  014D  01B0               	clrf	((__pbssBANK0)+0)&07Fh
+   201  014E  01B1               	clrf	((__pbssBANK0)+1)&07Fh
+   202  014F  01B2               	clrf	((__pbssBANK0)+2)&07Fh
+   203  0150  01B3               	clrf	((__pbssBANK0)+3)&07Fh
+   204                           global btemp
+   205                           psect inittext,class=CODE,delta=2
+   206                           global init_fetch,btemp
+   207                           ;	Called with low address in FSR and high address in W
+   208  0163                     init_fetch:
+   209  0163  087E               	movf btemp,w
+   210  0164  008A               	movwf pclath
+   211  0165  087F               	movf btemp+1,w
+   212  0166  0082               	movwf pc
+   213                           global init_ram
+   214                           ;Called with:
+   215                           ;	high address of idata address in btemp 
+   216                           ;	low address of idata address in btemp+1 
+   217                           ;	low address of data in FSR
+   218                           ;	high address + 1 of data in btemp-1
+   219  0167                     init_ram:
+   220  0167  120A  118A  2163   	fcall init_fetch
+              120A  118A         
+   221  016C  0080               	movwf indf,f
+   222  016D  0A84               	incf fsr,f
+   223  016E  0804               	movf fsr,w
+   224  016F  067D               	xorwf btemp-1,w
+   225  0170  1903               	btfsc status,2
+   226  0171  3400               	retlw 0
+   227  0172  0AFF               	incf btemp+1,f
+   228  0173  1903               	btfsc status,2
+   229  0174  0AFE               	incf btemp,f
+   230  0175  2967               	goto init_ram
+   231                           ; Initialize objects allocated to BANK0
+   232                           psect cinit,class=CODE,delta=2
+   233                           global init_ram, __pidataBANK0
+   234  0151  1383               	bcf	status, 7	;select IRP bank0
+   235  0152  3030               	movlw low(__pdataBANK0+16)
+   236  0153  00FD               	movwf btemp-1,f
+   237  0154  3001               	movlw high(__pidataBANK0)
+   238  0155  00FE               	movwf btemp,f
+   239  0156  3076               	movlw low(__pidataBANK0)
+   240  0157  00FF               	movwf btemp+1,f
+   241  0158  3020               	movlw low(__pdataBANK0)
+   242  0159  0084               	movwf fsr,f
+   243  015A  120A  118A  2167   	fcall init_ram
+              120A  118A         
+   244                           psect cinit,class=CODE,delta=2
+   245                           global end_of_initialization
+   246                           
+   247                           ;End of C runtime variable initialization code
+   248                           
+   249  015F                     end_of_initialization:
+   250  015F  0183               clrf status
+   251  0160  120A  118A  2815   ljmp _main	;jump to C main() function
+   252                           psect	cstackCOMMON,class=COMMON,space=1
+   253                           global __pcstackCOMMON
+   254  0070                     __pcstackCOMMON:
+   255                           	global	?_DELAY
+   256  0070                     ?_DELAY:	; 0 bytes @ 0x0
+   257                           	global	?_ENABLE
+   258  0070                     ?_ENABLE:	; 0 bytes @ 0x0
+   259                           	global	?_ENABLE1
+   260  0070                     ?_ENABLE1:	; 0 bytes @ 0x0
+   261                           	global	?_lcd
+   262  0070                     ?_lcd:	; 0 bytes @ 0x0
+   263                           	global	?_ccp1
+   264  0070                     ?_ccp1:	; 0 bytes @ 0x0
+   265                           	global	??_ccp1
+   266  0070                     ??_ccp1:	; 0 bytes @ 0x0
+   267                           	global	?_main
+   268  0070                     ?_main:	; 2 bytes @ 0x0
+   269  0070                     	ds	6
+   270                           psect	cstackBANK0,class=BANK0,space=1
+   271                           global __pcstackBANK0
+   272  0034                     __pcstackBANK0:
+   273                           	global	??_DELAY
+   274  0034                     ??_DELAY:	; 0 bytes @ 0x0
+   275                           	global	DELAY@i
+   276  0034                     DELAY@i:	; 2 bytes @ 0x0
+   277  0034                     	ds	2
+   278                           	global	??_ENABLE
+   279  0036                     ??_ENABLE:	; 0 bytes @ 0x2
+   280                           	global	??_ENABLE1
+   281  0036                     ??_ENABLE1:	; 0 bytes @ 0x2
+   282                           	global	??_lcd
+   283  0036                     ??_lcd:	; 0 bytes @ 0x2
+   284                           	global	??_main
+   285  0036                     ??_main:	; 0 bytes @ 0x2
+   286  0036                     	ds	1
+   287 ;;Data sizes: Strings 0, constant 0, data 16, bss 8, persistent 0 stack 0
+   288 ;;Auto spaces:   Size  Autos    Used
+   289 ;; COMMON          14      6      11
+   290 ;; BANK0           80      3      23
+   291 ;; BANK1           80      0       0
+   292 ;; BANK3           96      0       0
+   293 ;; BANK2           96      0       0
+   294                           
+   295 ;;
+   296 ;; Pointer list with targets:
+   297                           
+   298                           
+   299                           
+   300 ;;
+   301 ;; Critical Paths under _main in COMMON
+   302 ;;
+   303 ;;   None.
+   304 ;;
+   305 ;; Critical Paths under _ccp1 in COMMON
+   306 ;;
+   307 ;;   None.
+   308 ;;
+   309 ;; Critical Paths under _main in BANK0
+   310 ;;
+   311 ;;   _lcd->_DELAY
+   312 ;;   _ENABLE1->_DELAY
+   313 ;;   _ENABLE->_DELAY
+   314 ;;
+   315 ;; Critical Paths under _ccp1 in BANK0
+   316 ;;
+   317 ;;   None.
+   318 ;;
+   319 ;; Critical Paths under _main in BANK1
+   320 ;;
+   321 ;;   None.
+   322 ;;
+   323 ;; Critical Paths under _ccp1 in BANK1
+   324 ;;
+   325 ;;   None.
+   326 ;;
+   327 ;; Critical Paths under _main in BANK3
+   328 ;;
+   329 ;;   None.
+   330 ;;
+   331 ;; Critical Paths under _ccp1 in BANK3
+   332 ;;
+   333 ;;   None.
+   334 ;;
+   335 ;; Critical Paths under _main in BANK2
+   336 ;;
+   337 ;;   None.
+   338 ;;
+   339 ;; Critical Paths under _ccp1 in BANK2
+   340 ;;
+   341 ;;   None.
+   342                           
+   343 ;;
+   344 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   345 ;;
+   346                           
+   347 ;;
+   348 ;;Call Graph Tables:
+   349 ;;
+   350 ;; ---------------------------------------------------------------------------------
+   351 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   352 ;; ---------------------------------------------------------------------------------
+   353 ;; (0) _main                                                 1     1      0     184
+   354 ;;                                              2 BANK0      1     1      0
+   355 ;;                                _lcd
+   356 ;;                             _ENABLE
+   357 ;;                            _ENABLE1
+   358 ;; ---------------------------------------------------------------------------------
+   359 ;; (1) _lcd                                                  0     0      0      92
+   360 ;;                              _DELAY
+   361 ;;                             _ENABLE
+   362 ;; ---------------------------------------------------------------------------------
+   363 ;; (1) _ENABLE1                                              0     0      0      46
+   364 ;;                              _DELAY
+   365 ;; ---------------------------------------------------------------------------------
+   366 ;; (1) _ENABLE                                               0     0      0      46
+   367 ;;                              _DELAY
+   368 ;; ---------------------------------------------------------------------------------
+   369 ;; (2) _DELAY                                                2     2      0      46
+   370 ;;                                              0 BANK0      2     2      0
+   371 ;; ---------------------------------------------------------------------------------
+   372 ;; Estimated maximum stack depth 2
+   373 ;; ---------------------------------------------------------------------------------
+   374 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   375 ;; ---------------------------------------------------------------------------------
+   376 ;; (4) _ccp1                                                 6     6      0       0
+   377 ;;                                              0 COMMON     6     6      0
+   378 ;; ---------------------------------------------------------------------------------
+   379 ;; Estimated maximum stack depth 4
+   380 ;; ---------------------------------------------------------------------------------
+   381                           
+   382 ;; Call Graph Graphs:
+   383                           
+   384 ;; _main (ROOT)
+   385 ;;   _lcd
+   386 ;;     _DELAY
+   387 ;;     _ENABLE
+   388 ;;       _DELAY
+   389 ;;   _ENABLE
+   390 ;;     _DELAY
+   391 ;;   _ENABLE1
+   392 ;;     _DELAY
+   393 ;;
+   394 ;; _ccp1 (ROOT)
+   395 ;;
+   396                           
+   397 ;; Address spaces:
+   398                           
+   399 ;;Name               Size   Autos  Total    Cost      Usage
+   400 ;;BANK3               60      0       0       9        0.0%
+   401 ;;BITBANK3            60      0       0       8        0.0%
+   402 ;;SFR3                 0      0       0       4        0.0%
+   403 ;;BITSFR3              0      0       0       4        0.0%
+   404 ;;BANK2               60      0       0      11        0.0%
+   405 ;;BITBANK2            60      0       0      10        0.0%
+   406 ;;SFR2                 0      0       0       5        0.0%
+   407 ;;BITSFR2              0      0       0       5        0.0%
+   408 ;;SFR1                 0      0       0       2        0.0%
+   409 ;;BITSFR1              0      0       0       2        0.0%
+   410 ;;BANK1               50      0       0       7        0.0%
+   411 ;;BITBANK1            50      0       0       6        0.0%
+   412 ;;CODE                 0      0       0       0        0.0%
+   413 ;;DATA                 0      0      25      12        0.0%
+   414 ;;ABS                  0      0      22       3        0.0%
+   415 ;;NULL                 0      0       0       0        0.0%
+   416 ;;STACK                0      0       3       2        0.0%
+   417 ;;BANK0               50      3      17       5       28.8%
+   418 ;;BITBANK0            50      0       0       4        0.0%
+   419 ;;SFR0                 0      0       0       1        0.0%
+   420 ;;BITSFR0              0      0       0       1        0.0%
+   421 ;;COMMON               E      6       B       1       78.6%
+   422 ;;BITCOMMON            E      0       1       0        7.1%
+   423 ;;EEDATA             100      0       0       0        0.0%
+   424                           
+   425                           	global	_main
+   426                           psect	maintext,global,class=CODE,delta=2
+   427                           global __pmaintext
+   428  0015                     __pmaintext:
+   429                           
+   430 ;; *************** function _main *****************
+   431 ;; Defined at:
+   432 ;;		line 43 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   433 ;; Parameters:    Size  Location     Type
+   434 ;;		None
+   435 ;; Auto vars:     Size  Location     Type
+   436 ;;		None
+   437 ;; Return value:  Size  Location     Type
+   438 ;;                  2  722[COMMON] int 
+   439 ;; Registers used:
+   440 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   441 ;; Tracked objects:
+   442 ;;		On entry : 17F/0
+   443 ;;		On exit  : 0/0
+   444 ;;		Unchanged: 0/0
+   445 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   446 ;;      Params:         0       0       0       0       0
+   447 ;;      Locals:         0       0       0       0       0
+   448 ;;      Temps:          0       1       0       0       0
+   449 ;;      Totals:         0       1       0       0       0
+   450 ;;Total ram usage:        1 bytes
+   451 ;; Hardware stack levels required when called:    4
+   452 ;; This function calls:
+   453 ;;		_lcd
+   454 ;;		_ENABLE
+   455 ;;		_ENABLE1
+   456 ;; This function is called by:
+   457 ;;		Startup code after reset
+   458 ;; This function uses a non-reentrant model
+   459 ;;
+   460                           psect	maintext
+   461                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   462                           	line	43
+   463                           	global	__size_of_main
+   464  009C                     	__size_of_main	equ	__end_of_main-_main
+   465                           	
+   466  0015                     _main:	
+   467                           	opt	stack 4
+   468                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   469                           	
+   470  0015                     l2867:	
+   471  0015  120A  118A  20FB   	fcall	_lcd
+              120A  118A         
+   472                           	line	44
+   473                           	
+   474  001A                     l2869:	
+   475                           ;Untitled.c: 44: TRISC2=1;
+   476  001A  1683               	bsf	status, 5	;RP0=1, select bank1
+   477  001B  1303               	bcf	status, 6	;RP1=0, select bank1
+   478  001C  1507               	bsf	(1082/8)^080h,(1082)&7
+   479                           	line	45
+   480                           	
+   481  001D                     l2871:	
+   482                           ;Untitled.c: 45: a=0;ADCON1=7;
+   483  001D  107A               	bcf	(_a/8),(_a)&7
+   484                           	
+   485  001E                     l2873:	
+   486  001E  3007               	movlw	(07h)
+   487  001F  009F               	movwf	(159)^080h	;volatile
+   488                           	line	46
+   489                           	
+   490  0020                     l2875:	
+   491                           ;Untitled.c: 46: GIE=1;PEIE=1;CCP1IE=1;CCP1IF=0;
+   492  0020  178B               	bsf	(95/8),(95)&7
+   493                           	
+   494  0021                     l2877:	
+   495  0021  170B               	bsf	(94/8),(94)&7
+   496                           	
+   497  0022                     l2879:	
+   498  0022  150C               	bsf	(1122/8)^080h,(1122)&7
+   499                           	
+   500  0023                     l2881:	
+   501  0023  1283               	bcf	status, 5	;RP0=0, select bank0
+   502  0024  1303               	bcf	status, 6	;RP1=0, select bank0
+   503  0025  110C               	bcf	(98/8),(98)&7
+   504                           	line	47
+   505                           	
+   506  0026                     l2883:	
+   507                           ;Untitled.c: 47: TMR1IE=1;TMR1IF=0;
+   508  0026  1683               	bsf	status, 5	;RP0=1, select bank1
+   509  0027  1303               	bcf	status, 6	;RP1=0, select bank1
+   510  0028  140C               	bsf	(1120/8)^080h,(1120)&7
+   511                           	
+   512  0029                     l2885:	
+   513  0029  1283               	bcf	status, 5	;RP0=0, select bank0
+   514  002A  1303               	bcf	status, 6	;RP1=0, select bank0
+   515  002B  100C               	bcf	(96/8),(96)&7
+   516                           	line	48
+   517                           	
+   518  002C                     l2887:	
+   519                           ;Untitled.c: 48: T1CON=0B00000001;
+   520  002C  3001               	movlw	(01h)
+   521  002D  0090               	movwf	(16)	;volatile
+   522                           	line	49
+   523                           	
+   524  002E                     l2889:	
+   525                           ;Untitled.c: 49: CCP1CON=5;
+   526  002E  3005               	movlw	(05h)
+   527  002F  0097               	movwf	(23)	;volatile
+   528  0030  2831               	goto	l2891
+   529                           	line	50
+   530                           ;Untitled.c: 50: while(1)
+   531                           	
+   532  0031                     l723:	
+   533                           	line	52
+   534                           	
+   535  0031                     l2891:	
+   536                           ;Untitled.c: 51: {
+   537                           ;Untitled.c: 52: PORTD=0x80;ENABLE();
+   538  0031  3080               	movlw	(080h)
+   539  0032  1283               	bcf	status, 5	;RP0=0, select bank0
+   540  0033  1303               	bcf	status, 6	;RP1=0, select bank0
+   541  0034  0088               	movwf	(8)	;volatile
+   542  0035  120A  118A  2194   	fcall	_ENABLE
+              120A  118A         
+   543                           	line	53
+   544                           	
+   545  003A                     l2893:	
+   546                           ;Untitled.c: 53: PORTD=table[Z>>4];ENABLE1();
+   547  003A  0876               	movf	(_Z),w
+   548  003B  1283               	bcf	status, 5	;RP0=0, select bank0
+   549  003C  1303               	bcf	status, 6	;RP1=0, select bank0
+   550  003D  00B6               	movwf	(??_main+0)+0
+   551  003E  3004               	movlw	04h
+   552  003F                     u2385:
+   553  003F  1003               	clrc
+   554  0040  0CB6               	rrf	(??_main+0)+0,f
+   555  0041  3EFF               	addlw	-1
+   556  0042  1D03               	skipz
+   557  0043  283F               	goto	u2385
+   558  0044  0836               	movf	0+(??_main+0)+0,w
+   559  0045  3E20               	addlw	_table&0ffh
+   560  0046  0084               	movwf	fsr0
+   561  0047  1383               	bcf	status, 7	;select IRP bank0
+   562  0048  0800               	movf	indf,w
+   563  0049  0088               	movwf	(8)	;volatile
+   564                           	
+   565  004A                     l2895:	
+   566  004A  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   567                           	line	54
+   568                           ;Untitled.c: 54: PORTD=table[Z&0x0f];ENABLE1();
+   569  004F  0876               	movf	(_Z),w
+   570  0050  390F               	andlw	0Fh
+   571  0051  3E20               	addlw	_table&0ffh
+   572  0052  0084               	movwf	fsr0
+   573  0053  1383               	bcf	status, 7	;select IRP bank0
+   574  0054  0800               	movf	indf,w
+   575  0055  1283               	bcf	status, 5	;RP0=0, select bank0
+   576  0056  1303               	bcf	status, 6	;RP1=0, select bank0
+   577  0057  0088               	movwf	(8)	;volatile
+   578                           	
+   579  0058                     l2897:	
+   580  0058  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   581                           	line	55
+   582                           	
+   583  005D                     l2899:	
+   584                           ;Untitled.c: 55: PORTD=table[x>>4];ENABLE1();
+   585  005D  0877               	movf	(_x),w
+   586  005E  1283               	bcf	status, 5	;RP0=0, select bank0
+   587  005F  1303               	bcf	status, 6	;RP1=0, select bank0
+   588  0060  00B6               	movwf	(??_main+0)+0
+   589  0061  3004               	movlw	04h
+   590  0062                     u2395:
+   591  0062  1003               	clrc
+   592  0063  0CB6               	rrf	(??_main+0)+0,f
+   593  0064  3EFF               	addlw	-1
+   594  0065  1D03               	skipz
+   595  0066  2862               	goto	u2395
+   596  0067  0836               	movf	0+(??_main+0)+0,w
+   597  0068  3E20               	addlw	_table&0ffh
+   598  0069  0084               	movwf	fsr0
+   599  006A  1383               	bcf	status, 7	;select IRP bank0
+   600  006B  0800               	movf	indf,w
+   601  006C  0088               	movwf	(8)	;volatile
+   602  006D  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   603                           	line	56
+   604                           	
+   605  0072                     l2901:	
+   606                           ;Untitled.c: 56: PORTD=table[x&0x0f];ENABLE1();
+   607  0072  0877               	movf	(_x),w
+   608  0073  390F               	andlw	0Fh
+   609  0074  3E20               	addlw	_table&0ffh
+   610  0075  0084               	movwf	fsr0
+   611  0076  1383               	bcf	status, 7	;select IRP bank0
+   612  0077  0800               	movf	indf,w
+   613  0078  1283               	bcf	status, 5	;RP0=0, select bank0
+   614  0079  1303               	bcf	status, 6	;RP1=0, select bank0
+   615  007A  0088               	movwf	(8)	;volatile
+   616                           	
+   617  007B                     l2903:	
+   618  007B  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   619                           	line	57
+   620                           ;Untitled.c: 57: PORTD=table[y>>4];ENABLE1();
+   621  0080  0878               	movf	(_y),w
+   622  0081  1283               	bcf	status, 5	;RP0=0, select bank0
+   623  0082  1303               	bcf	status, 6	;RP1=0, select bank0
+   624  0083  00B6               	movwf	(??_main+0)+0
+   625  0084  3004               	movlw	04h
+   626  0085                     u2405:
+   627  0085  1003               	clrc
+   628  0086  0CB6               	rrf	(??_main+0)+0,f
+   629  0087  3EFF               	addlw	-1
+   630  0088  1D03               	skipz
+   631  0089  2885               	goto	u2405
+   632  008A  0836               	movf	0+(??_main+0)+0,w
+   633  008B  3E20               	addlw	_table&0ffh
+   634  008C  0084               	movwf	fsr0
+   635  008D  1383               	bcf	status, 7	;select IRP bank0
+   636  008E  0800               	movf	indf,w
+   637  008F  0088               	movwf	(8)	;volatile
+   638                           	
+   639  0090                     l2905:	
+   640  0090  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   641                           	line	58
+   642                           	
+   643  0095                     l2907:	
+   644                           ;Untitled.c: 58: PORTD=table[y&0x0f];ENABLE1();
+   645  0095  0878               	movf	(_y),w
+   646  0096  390F               	andlw	0Fh
+   647  0097  3E20               	addlw	_table&0ffh
+   648  0098  0084               	movwf	fsr0
+   649  0099  1383               	bcf	status, 7	;select IRP bank0
+   650  009A  0800               	movf	indf,w
+   651  009B  1283               	bcf	status, 5	;RP0=0, select bank0
+   652  009C  1303               	bcf	status, 6	;RP1=0, select bank0
+   653  009D  0088               	movwf	(8)	;volatile
+   654  009E  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   655                           	line	59
+   656                           	
+   657  00A3                     l2909:	
+   658                           ;Untitled.c: 59: PORTD='H';ENABLE1();
+   659  00A3  3048               	movlw	(048h)
+   660  00A4  1283               	bcf	status, 5	;RP0=0, select bank0
+   661  00A5  1303               	bcf	status, 6	;RP1=0, select bank0
+   662  00A6  0088               	movwf	(8)	;volatile
+   663                           	
+   664  00A7                     l2911:	
+   665  00A7  120A  118A  2186   	fcall	_ENABLE1
+              120A  118A         
+   666  00AC  2831               	goto	l2891
+   667                           	line	60
+   668                           	
+   669  00AD                     l724:	
+   670                           	line	50
+   671  00AD  2831               	goto	l2891
+   672                           	
+   673  00AE                     l725:	
+   674                           	line	61
+   675                           	
+   676  00AE                     l726:	
+   677                           	global	start
+   678  00AE  120A  118A  2812   	ljmp	start
+   679                           	opt stack 0
+   680                           GLOBAL	__end_of_main
+   681  00B1                     	__end_of_main:
+   682 ;; =============== function _main ends ============
+   683                           
+   684                           	signat	_main,90
+   685                           	global	_lcd
+   686                           psect	text231,local,class=CODE,delta=2
+   687                           global __ptext231
+   688  00FB                     __ptext231:
+   689                           
+   690 ;; *************** function _lcd *****************
+   691 ;; Defined at:
+   692 ;;		line 13 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   693 ;; Parameters:    Size  Location     Type
+   694 ;;		None
+   695 ;; Auto vars:     Size  Location     Type
+   696 ;;		None
+   697 ;; Return value:  Size  Location     Type
+   698 ;;		None               void
+   699 ;; Registers used:
+   700 ;;		wreg, status,2, status,0, pclath, cstack
+   701 ;; Tracked objects:
+   702 ;;		On entry : 0/0
+   703 ;;		On exit  : 0/0
+   704 ;;		Unchanged: 0/0
+   705 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   706 ;;      Params:         0       0       0       0       0
+   707 ;;      Locals:         0       0       0       0       0
+   708 ;;      Temps:          0       0       0       0       0
+   709 ;;      Totals:         0       0       0       0       0
+   710 ;;Total ram usage:        0 bytes
+   711 ;; Hardware stack levels used:    1
+   712 ;; Hardware stack levels required when called:    3
+   713 ;; This function calls:
+   714 ;;		_DELAY
+   715 ;;		_ENABLE
+   716 ;; This function is called by:
+   717 ;;		_main
+   718 ;; This function uses a non-reentrant model
+   719 ;;
+   720                           psect	text231
+   721                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   722                           	line	13
+   723                           	global	__size_of_lcd
+   724  0031                     	__size_of_lcd	equ	__end_of_lcd-_lcd
+   725                           	
+   726  00FB                     _lcd:	
+   727                           	opt	stack 4
+   728                           ; Regs used in _lcd: [wreg+status,2+status,0+pclath+cstack]
+   729                           	
+   730  00FB                     l2847:	
+   731  00FB  1683               	bsf	status, 5	;RP0=1, select bank1
+   732  00FC  1303               	bcf	status, 6	;RP1=0, select bank1
+   733  00FD  0188               	clrf	(136)^080h	;volatile
+   734  00FE  0185               	clrf	(133)^080h	;volatile
+   735                           	line	14
+   736                           ;Untitled.c: 14: PORTD=0;
+   737  00FF  1283               	bcf	status, 5	;RP0=0, select bank0
+   738  0100  1303               	bcf	status, 6	;RP1=0, select bank0
+   739  0101  0188               	clrf	(8)	;volatile
+   740                           	line	15
+   741                           	
+   742  0102                     l2849:	
+   743                           ;Untitled.c: 15: DELAY();
+   744  0102  120A  118A  212C   	fcall	_DELAY
+              120A  118A         
+   745                           	line	16
+   746                           	
+   747  0107                     l2851:	
+   748                           ;Untitled.c: 16: PORTD=1;ENABLE();
+   749  0107  3001               	movlw	(01h)
+   750  0108  1283               	bcf	status, 5	;RP0=0, select bank0
+   751  0109  1303               	bcf	status, 6	;RP1=0, select bank0
+   752  010A  0088               	movwf	(8)	;volatile
+   753                           	
+   754  010B                     l2853:	
+   755  010B  120A  118A  2194   	fcall	_ENABLE
+              120A  118A         
+   756                           	line	17
+   757                           	
+   758  0110                     l2855:	
+   759                           ;Untitled.c: 17: PORTD=0x38;ENABLE();
+   760  0110  3038               	movlw	(038h)
+   761  0111  1283               	bcf	status, 5	;RP0=0, select bank0
+   762  0112  1303               	bcf	status, 6	;RP1=0, select bank0
+   763  0113  0088               	movwf	(8)	;volatile
+   764                           	
+   765  0114                     l2857:	
+   766  0114  120A  118A  2194   	fcall	_ENABLE
+              120A  118A         
+   767                           	line	18
+   768                           	
+   769  0119                     l2859:	
+   770                           ;Untitled.c: 18: PORTD=0x0c;ENABLE();
+   771  0119  300C               	movlw	(0Ch)
+   772  011A  1283               	bcf	status, 5	;RP0=0, select bank0
+   773  011B  1303               	bcf	status, 6	;RP1=0, select bank0
+   774  011C  0088               	movwf	(8)	;volatile
+   775                           	
+   776  011D                     l2861:	
+   777  011D  120A  118A  2194   	fcall	_ENABLE
+              120A  118A         
+   778                           	line	19
+   779                           	
+   780  0122                     l2863:	
+   781                           ;Untitled.c: 19: PORTD=0x06;ENABLE();
+   782  0122  3006               	movlw	(06h)
+   783  0123  1283               	bcf	status, 5	;RP0=0, select bank0
+   784  0124  1303               	bcf	status, 6	;RP1=0, select bank0
+   785  0125  0088               	movwf	(8)	;volatile
+   786                           	
+   787  0126                     l2865:	
+   788  0126  120A  118A  2194   	fcall	_ENABLE
+              120A  118A         
+   789                           	line	20
+   790                           	
+   791  012B                     l712:	
+   792  012B  0008               	return
+   793                           	opt stack 0
+   794                           GLOBAL	__end_of_lcd
+   795  012C                     	__end_of_lcd:
+   796 ;; =============== function _lcd ends ============
+   797                           
+   798                           	signat	_lcd,88
+   799                           	global	_ENABLE1
+   800                           psect	text232,local,class=CODE,delta=2
+   801                           global __ptext232
+   802  0186                     __ptext232:
+   803                           
+   804 ;; *************** function _ENABLE1 *****************
+   805 ;; Defined at:
+   806 ;;		line 11 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   807 ;; Parameters:    Size  Location     Type
+   808 ;;		None
+   809 ;; Auto vars:     Size  Location     Type
+   810 ;;		None
+   811 ;; Return value:  Size  Location     Type
+   812 ;;		None               void
+   813 ;; Registers used:
+   814 ;;		wreg, status,2, status,0, pclath, cstack
+   815 ;; Tracked objects:
+   816 ;;		On entry : 0/0
+   817 ;;		On exit  : 0/0
+   818 ;;		Unchanged: 0/0
+   819 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   820 ;;      Params:         0       0       0       0       0
+   821 ;;      Locals:         0       0       0       0       0
+   822 ;;      Temps:          0       0       0       0       0
+   823 ;;      Totals:         0       0       0       0       0
+   824 ;;Total ram usage:        0 bytes
+   825 ;; Hardware stack levels used:    1
+   826 ;; Hardware stack levels required when called:    2
+   827 ;; This function calls:
+   828 ;;		_DELAY
+   829 ;; This function is called by:
+   830 ;;		_main
+   831 ;; This function uses a non-reentrant model
+   832 ;;
+   833                           psect	text232
+   834                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   835                           	line	11
+   836                           	global	__size_of_ENABLE1
+   837  000E                     	__size_of_ENABLE1	equ	__end_of_ENABLE1-_ENABLE1
+   838                           	
+   839  0186                     _ENABLE1:	
+   840                           	opt	stack 5
+   841                           ; Regs used in _ENABLE1: [wreg+status,2+status,0+pclath+cstack]
+   842                           	
+   843  0186                     l2841:	
+   844  0186  1283               	bcf	status, 5	;RP0=0, select bank0
+   845  0187  1303               	bcf	status, 6	;RP1=0, select bank0
+   846  0188  1685               	bsf	(45/8),(45)&7
+   847  0189  1205               	bcf	(44/8),(44)&7
+   848  018A  1185               	bcf	(43/8),(43)&7
+   849                           	
+   850  018B                     l2843:	
+   851  018B  120A  118A  212C   	fcall	_DELAY
+              120A  118A         
+   852                           	
+   853  0190                     l2845:	
+   854  0190  1283               	bcf	status, 5	;RP0=0, select bank0
+   855  0191  1303               	bcf	status, 6	;RP1=0, select bank0
+   856  0192  1585               	bsf	(43/8),(43)&7
+   857                           	
+   858  0193                     l709:	
+   859  0193  0008               	return
+   860                           	opt stack 0
+   861                           GLOBAL	__end_of_ENABLE1
+   862  0194                     	__end_of_ENABLE1:
+   863 ;; =============== function _ENABLE1 ends ============
+   864                           
+   865                           	signat	_ENABLE1,88
+   866                           	global	_ENABLE
+   867                           psect	text233,local,class=CODE,delta=2
+   868                           global __ptext233
+   869  0194                     __ptext233:
+   870                           
+   871 ;; *************** function _ENABLE *****************
+   872 ;; Defined at:
+   873 ;;		line 9 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   874 ;; Parameters:    Size  Location     Type
+   875 ;;		None
+   876 ;; Auto vars:     Size  Location     Type
+   877 ;;		None
+   878 ;; Return value:  Size  Location     Type
+   879 ;;		None               void
+   880 ;; Registers used:
+   881 ;;		wreg, status,2, status,0, pclath, cstack
+   882 ;; Tracked objects:
+   883 ;;		On entry : 0/0
+   884 ;;		On exit  : 0/0
+   885 ;;		Unchanged: 0/0
+   886 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   887 ;;      Params:         0       0       0       0       0
+   888 ;;      Locals:         0       0       0       0       0
+   889 ;;      Temps:          0       0       0       0       0
+   890 ;;      Totals:         0       0       0       0       0
+   891 ;;Total ram usage:        0 bytes
+   892 ;; Hardware stack levels used:    1
+   893 ;; Hardware stack levels required when called:    2
+   894 ;; This function calls:
+   895 ;;		_DELAY
+   896 ;; This function is called by:
+   897 ;;		_lcd
+   898 ;;		_main
+   899 ;; This function uses a non-reentrant model
+   900 ;;
+   901                           psect	text233
+   902                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   903                           	line	9
+   904                           	global	__size_of_ENABLE
+   905  000E                     	__size_of_ENABLE	equ	__end_of_ENABLE-_ENABLE
+   906                           	
+   907  0194                     _ENABLE:	
+   908                           	opt	stack 5
+   909                           ; Regs used in _ENABLE: [wreg+status,2+status,0+pclath+cstack]
+   910                           	
+   911  0194                     l2835:	
+   912  0194  1283               	bcf	status, 5	;RP0=0, select bank0
+   913  0195  1303               	bcf	status, 6	;RP1=0, select bank0
+   914  0196  1285               	bcf	(45/8),(45)&7
+   915  0197  1205               	bcf	(44/8),(44)&7
+   916  0198  1185               	bcf	(43/8),(43)&7
+   917                           	
+   918  0199                     l2837:	
+   919  0199  120A  118A  212C   	fcall	_DELAY
+              120A  118A         
+   920                           	
+   921  019E                     l2839:	
+   922  019E  1283               	bcf	status, 5	;RP0=0, select bank0
+   923  019F  1303               	bcf	status, 6	;RP1=0, select bank0
+   924  01A0  1585               	bsf	(43/8),(43)&7
+   925                           	
+   926  01A1                     l706:	
+   927  01A1  0008               	return
+   928                           	opt stack 0
+   929                           GLOBAL	__end_of_ENABLE
+   930  01A2                     	__end_of_ENABLE:
+   931 ;; =============== function _ENABLE ends ============
+   932                           
+   933                           	signat	_ENABLE,88
+   934                           	global	_DELAY
+   935                           psect	text234,local,class=CODE,delta=2
+   936                           global __ptext234
+   937  012C                     __ptext234:
+   938                           
+   939 ;; *************** function _DELAY *****************
+   940 ;; Defined at:
+   941 ;;		line 7 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   942 ;; Parameters:    Size  Location     Type
+   943 ;;		None
+   944 ;; Auto vars:     Size  Location     Type
+   945 ;;  i               2    0[BANK0 ] unsigned int 
+   946 ;; Return value:  Size  Location     Type
+   947 ;;		None               void
+   948 ;; Registers used:
+   949 ;;		wreg, status,2, status,0
+   950 ;; Tracked objects:
+   951 ;;		On entry : 0/0
+   952 ;;		On exit  : 0/0
+   953 ;;		Unchanged: 0/0
+   954 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   955 ;;      Params:         0       0       0       0       0
+   956 ;;      Locals:         0       2       0       0       0
+   957 ;;      Temps:          0       0       0       0       0
+   958 ;;      Totals:         0       2       0       0       0
+   959 ;;Total ram usage:        2 bytes
+   960 ;; Hardware stack levels used:    1
+   961 ;; Hardware stack levels required when called:    1
+   962 ;; This function calls:
+   963 ;;		Nothing
+   964 ;; This function is called by:
+   965 ;;		_ENABLE
+   966 ;;		_ENABLE1
+   967 ;;		_lcd
+   968 ;; This function uses a non-reentrant model
+   969 ;;
+   970                           psect	text234
+   971                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+   972                           	line	7
+   973                           	global	__size_of_DELAY
+   974  001C                     	__size_of_DELAY	equ	__end_of_DELAY-_DELAY
+   975                           	
+   976  012C                     _DELAY:	
+   977                           	opt	stack 5
+   978                           ; Regs used in _DELAY: [wreg+status,2+status,0]
+   979                           	
+   980  012C                     l2825:	
+   981  012C  30E7               	movlw	low(03E7h)
+   982  012D  1283               	bcf	status, 5	;RP0=0, select bank0
+   983  012E  1303               	bcf	status, 6	;RP1=0, select bank0
+   984  012F  00B4               	movwf	(DELAY@i)
+   985  0130  3003               	movlw	high(03E7h)
+   986  0131  00B5               	movwf	((DELAY@i))+1
+   987                           	
+   988  0132                     l2827:	
+   989  0132  0835               	movf	((DELAY@i+1)),w
+   990  0133  0434               	iorwf	((DELAY@i)),w
+   991  0134  1D03               	skipz
+   992  0135  2937               	goto	u2361
+   993  0136  2938               	goto	u2360
+   994  0137                     u2361:
+   995  0137  293A               	goto	l2831
+   996  0138                     u2360:
+   997  0138  2947               	goto	l703
+   998                           	
+   999  0139                     l2829:	
+  1000  0139  2947               	goto	l703
+  1001                           	
+  1002  013A                     l701:	
+  1003                           	
+  1004  013A                     l2831:	
+  1005  013A  3001               	movlw	low(01h)
+  1006  013B  02B4               	subwf	(DELAY@i),f
+  1007  013C  3000               	movlw	high(01h)
+  1008  013D  1C03               	skipc
+  1009  013E  03B5               	decf	(DELAY@i+1),f
+  1010  013F  02B5               	subwf	(DELAY@i+1),f
+  1011                           	
+  1012  0140                     l2833:	
+  1013  0140  0835               	movf	((DELAY@i+1)),w
+  1014  0141  0434               	iorwf	((DELAY@i)),w
+  1015  0142  1D03               	skipz
+  1016  0143  2945               	goto	u2371
+  1017  0144  2946               	goto	u2370
+  1018  0145                     u2371:
+  1019  0145  293A               	goto	l2831
+  1020  0146                     u2370:
+  1021  0146  2947               	goto	l703
+  1022                           	
+  1023  0147                     l702:	
+  1024                           	
+  1025  0147                     l703:	
+  1026  0147  0008               	return
+  1027                           	opt stack 0
+  1028                           GLOBAL	__end_of_DELAY
+  1029  0148                     	__end_of_DELAY:
+  1030 ;; =============== function _DELAY ends ============
+  1031                           
+  1032                           	signat	_DELAY,88
+  1033                           	global	_ccp1
+  1034                           psect	text235,local,class=CODE,delta=2
+  1035                           global __ptext235
+  1036  00B1                     __ptext235:
+  1037                           
+  1038 ;; *************** function _ccp1 *****************
+  1039 ;; Defined at:
+  1040 ;;		line 24 in file "D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+  1041 ;; Parameters:    Size  Location     Type
+  1042 ;;		None
+  1043 ;; Auto vars:     Size  Location     Type
+  1044 ;;		None
+  1045 ;; Return value:  Size  Location     Type
+  1046 ;;		None               void
+  1047 ;; Registers used:
+  1048 ;;		wreg, status,2, status,0
+  1049 ;; Tracked objects:
+  1050 ;;		On entry : 0/0
+  1051 ;;		On exit  : 0/0
+  1052 ;;		Unchanged: 0/0
+  1053 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1054 ;;      Params:         0       0       0       0       0
+  1055 ;;      Locals:         0       0       0       0       0
+  1056 ;;      Temps:          6       0       0       0       0
+  1057 ;;      Totals:         6       0       0       0       0
+  1058 ;;Total ram usage:        6 bytes
+  1059 ;; Hardware stack levels used:    1
+  1060 ;; This function calls:
+  1061 ;;		Nothing
+  1062 ;; This function is called by:
+  1063 ;;		Interrupt level 1
+  1064 ;; This function uses a non-reentrant model
+  1065 ;;
+  1066                           psect	text235
+  1067                           	file	"D:\OneDrive - asd\WeiJi\Mplab_workspace\sy5\Untitled.c"
+  1068                           	line	24
+  1069                           	global	__size_of_ccp1
+  1070  004A                     	__size_of_ccp1	equ	__end_of_ccp1-_ccp1
+  1071                           	
+  1072  00B1                     _ccp1:	
+  1073                           	opt	stack 4
+  1074                           ; Regs used in _ccp1: [wreg+status,2+status,0]
+  1075                           psect	intentry,class=CODE,delta=2
+  1076                           global __pintentry
+  1077  0004                     __pintentry:
+  1078                           global interrupt_function
+  1079  0004                     interrupt_function:
+  1080                           	global saved_w
+  1081  007E                     	saved_w	set	btemp+0
+  1082  0004  00FE               	movwf	saved_w
+  1083  0005  0E03               	swapf	status,w
+  1084  0006  00F2               	movwf	(??_ccp1+2)
+  1085  0007  0804               	movf	fsr0,w
+  1086  0008  00F3               	movwf	(??_ccp1+3)
+  1087  0009  080A               	movf	pclath,w
+  1088  000A  00F4               	movwf	(??_ccp1+4)
+  1089  000B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1090  000C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1091  000D  087F               	movf	btemp+1,w
+  1092  000E  00F5               	movwf	(??_ccp1+5)
+  1093  000F  120A  118A  28B1   	ljmp	_ccp1
+  1094                           psect	text235
+  1095                           	line	25
+  1096                           	
+  1097  00B1                     i1l2749:	
+  1098                           ;Untitled.c: 25: if(CCP1IF==1)
+  1099  00B1  1D0C               	btfss	(98/8),(98)&7
+  1100  00B2  28B4               	goto	u230_21
+  1101  00B3  28B5               	goto	u230_20
+  1102  00B4                     u230_21:
+  1103  00B4  28E4               	goto	i1l715
+  1104  00B5                     u230_20:
+  1105                           	line	26
+  1106                           	
+  1107  00B5                     i1l2751:	
+  1108                           ;Untitled.c: 26: {a=!a;
+  1109  00B5  3001               	movlw	1<<((_a)&7)
+  1110  00B6  06FA               	xorwf	((_a)/8),f
+  1111                           	line	28
+  1112                           	
+  1113  00B7                     i1l2753:	
+  1114                           ;Untitled.c: 28: if(a==1){ TMR1H=0;TMR1L=0;TMR1L=0;TMR1ON=1;z=0;
+  1115  00B7  1C7A               	btfss	(_a/8),(_a)&7
+  1116  00B8  28BA               	goto	u231_21
+  1117  00B9  28BB               	goto	u231_20
+  1118  00BA                     u231_21:
+  1119  00BA  28D0               	goto	i1l2767
+  1120  00BB                     u231_20:
+  1121                           	
+  1122  00BB                     i1l2755:	
+  1123  00BB  018F               	clrf	(15)	;volatile
+  1124  00BC  018E               	clrf	(14)	;volatile
+  1125  00BD  018E               	clrf	(14)	;volatile
+  1126                           	
+  1127  00BE                     i1l2757:	
+  1128  00BE  1410               	bsf	(128/8),(128)&7
+  1129                           	
+  1130  00BF                     i1l2759:	
+  1131  00BF  01F9               	clrf	(_z)
+  1132                           	line	29
+  1133                           	
+  1134  00C0                     i1l2761:	
+  1135                           ;Untitled.c: 29: TEMP1=CCPR1H ; TEMP2=CCPR1L ;CCP1IF=0; }
+  1136  00C0  0816               	movf	(22),w	;volatile
+  1137  00C1  00F0               	movwf	(??_ccp1+0)+0
+  1138  00C2  01F1               	clrf	(??_ccp1+0)+0+1
+  1139  00C3  0870               	movf	0+(??_ccp1+0)+0,w
+  1140  00C4  00B0               	movwf	(_TEMP1)
+  1141  00C5  0871               	movf	1+(??_ccp1+0)+0,w
+  1142  00C6  00B1               	movwf	(_TEMP1+1)
+  1143                           	
+  1144  00C7                     i1l2763:	
+  1145  00C7  0815               	movf	(21),w	;volatile
+  1146  00C8  00F0               	movwf	(??_ccp1+0)+0
+  1147  00C9  01F1               	clrf	(??_ccp1+0)+0+1
+  1148  00CA  0870               	movf	0+(??_ccp1+0)+0,w
+  1149  00CB  00B2               	movwf	(_TEMP2)
+  1150  00CC  0871               	movf	1+(??_ccp1+0)+0,w
+  1151  00CD  00B3               	movwf	(_TEMP2+1)
+  1152                           	
+  1153  00CE                     i1l2765:	
+  1154  00CE  110C               	bcf	(98/8),(98)&7
+  1155  00CF  28EF               	goto	i1l2777
+  1156                           	line	30
+  1157                           	
+  1158  00D0                     i1l716:	
+  1159                           	line	33
+  1160                           	
+  1161  00D0                     i1l2767:	
+  1162                           ;Untitled.c: 30: else
+  1163                           ;Untitled.c: 31: {
+  1164                           ;Untitled.c: 33: y=CCPR1L+1;x=CCPR1H+CARRY;Z=z;TMR1ON=0;CCP1IF=0;
+  1165  00D0  0815               	movf	(21),w	;volatile
+  1166  00D1  3E01               	addlw	01h
+  1167  00D2  00F0               	movwf	(??_ccp1+0)+0
+  1168  00D3  0870               	movf	(??_ccp1+0)+0,w
+  1169  00D4  00F8               	movwf	(_y)
+  1170  00D5  3000               	movlw	0
+  1171  00D6  1803               	btfsc	(24/8),(24)&7
+  1172  00D7  3001               	movlw	1
+  1173  00D8  0716               	addwf	(22),w	;volatile
+  1174  00D9  00F0               	movwf	(??_ccp1+0)+0
+  1175  00DA  0870               	movf	(??_ccp1+0)+0,w
+  1176  00DB  00F7               	movwf	(_x)
+  1177                           	
+  1178  00DC                     i1l2769:	
+  1179  00DC  0879               	movf	(_z),w
+  1180  00DD  00F0               	movwf	(??_ccp1+0)+0
+  1181  00DE  0870               	movf	(??_ccp1+0)+0,w
+  1182  00DF  00F6               	movwf	(_Z)
+  1183                           	
+  1184  00E0                     i1l2771:	
+  1185  00E0  1010               	bcf	(128/8),(128)&7
+  1186                           	
+  1187  00E1                     i1l2773:	
+  1188  00E1  110C               	bcf	(98/8),(98)&7
+  1189  00E2  28EF               	goto	i1l2777
+  1190                           	line	35
+  1191                           	
+  1192  00E3                     i1l717:	
+  1193                           	line	36
+  1194                           ;Untitled.c: 35: };
+  1195                           ;Untitled.c: 36: }
+  1196  00E3  28EF               	goto	i1l2777
+  1197                           	line	37
+  1198                           	
+  1199  00E4                     i1l715:	
+  1200                           	line	38
+  1201                           ;Untitled.c: 37: else
+  1202                           ;Untitled.c: 38: if(TMR1IF=1)
+  1203  00E4  140C               	bsf	(96/8),(96)&7
+  1204  00E5  1C0C               	btfss	(96/8),(96)&7
+  1205  00E6  28E8               	goto	u232_21
+  1206  00E7  28E9               	goto	u232_20
+  1207  00E8                     u232_21:
+  1208  00E8  28EF               	goto	i1l2777
+  1209  00E9                     u232_20:
+  1210                           	line	39
+  1211                           	
+  1212  00E9                     i1l2775:	
+  1213                           ;Untitled.c: 39: z++;
+  1214  00E9  3001               	movlw	(01h)
+  1215  00EA  00F0               	movwf	(??_ccp1+0)+0
+  1216  00EB  0870               	movf	(??_ccp1+0)+0,w
+  1217  00EC  07F9               	addwf	(_z),f
+  1218  00ED  28EF               	goto	i1l2777
+  1219                           	
+  1220  00EE                     i1l719:	
+  1221  00EE  28EF               	goto	i1l2777
+  1222                           	line	40
+  1223                           	
+  1224  00EF                     i1l718:	
+  1225                           	
+  1226  00EF                     i1l2777:	
+  1227                           ;Untitled.c: 40: TMR1IF=0;
+  1228  00EF  100C               	bcf	(96/8),(96)&7
+  1229                           	line	41
+  1230                           	
+  1231  00F0                     i1l720:	
+  1232  00F0  0875               	movf	(??_ccp1+5),w
+  1233  00F1  00FF               	movwf	btemp+1
+  1234  00F2  0874               	movf	(??_ccp1+4),w
+  1235  00F3  008A               	movwf	pclath
+  1236  00F4  0873               	movf	(??_ccp1+3),w
+  1237  00F5  0084               	movwf	fsr0
+  1238  00F6  0E72               	swapf	(??_ccp1+2)^0FFFFFF80h,w
+  1239  00F7  0083               	movwf	status
+  1240  00F8  0EFE               	swapf	saved_w,f
+  1241  00F9  0E7E               	swapf	saved_w,w
+  1242  00FA  0009               	retfie
+  1243                           	opt stack 0
+  1244                           GLOBAL	__end_of_ccp1
+  1245  00FB                     	__end_of_ccp1:
+  1246 ;; =============== function _ccp1 ends ============
+  1247                           
+  1248                           	signat	_ccp1,88
+  1249                           psect	text236,local,class=CODE,delta=2
+  1250                           global __ptext236
+  1251  0000                     __ptext236:
+  1252                           	global	btemp
+  1253  007E                     	btemp set 07Eh
+  1254                           
+  1255                           	DABS	1,126,2	;btemp
+  1256                           	global	wtemp0
+  1257  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.82 build 9453 
+Symbol Table                                                                                   Thu May 01 00:27:42 2025
+
+                   _Z 0076                     _a 03D0                     _x 0077                     _y 0078  
+                   _z 0079                     pc 0002                    _RD 0C60                    _WR 0C61  
+                  fsr 0004                   l701 013A                   l702 0147                   l703 0147  
+                 l712 012B                   l706 01A1                   l723 0031                   l724 00AD  
+                 l709 0193                   l725 00AE                   l726 00AE                   _GIE 005F  
+                 _RA3 002B                   _RA4 002C                   _RA5 002D                   _lcd 00FB  
+                 fsr0 0004                   indf 0000       __end_of_ENABLE1 0194                  ?_lcd 0070  
+                l2901 0072                  l2831 013A                  l2911 00A7                  l2903 007B  
+                l2833 0140                  l2825 012C                  l2841 0186                  l2905 0090  
+                l2827 0132                  l2835 0194                  l2843 018B                  l2851 0107  
+                l2907 0095                  l2829 0139                  l2837 0199                  l2845 0190  
+                l2861 011D                  l2853 010B                  l2909 00A3                  l2839 019E  
+                l2863 0122                  l2855 0110                  l2847 00FB                  l2871 001D  
+                l2865 0126                  l2857 0114                  l2849 0102                  l2881 0023  
+                l2873 001E                  l2859 0119                  l2891 0031                  l2883 0026  
+                l2875 0020                  l2867 0015                  l2893 003A                  l2885 0029  
+                l2877 0021                  l2869 001A                  l2895 004A                  l2887 002C  
+                l2879 0022                  l2897 0058                  l2889 002E                  l2899 005D  
+                u2405 0085                  u2360 0138                  u2361 0137                  u2370 0146  
+                u2371 0145                  u2385 003F                  u2395 0062                  _PEIE 005E  
+                _WREN 0C62                  _ccp1 00B1                  _main 0015                  btemp 007E  
+                start 0012                 ??_lcd 0036                 ?_ccp1 0070                 ?_main 0070  
+               _EEADR 010D                 _DELAY 012C                 _CARRY 0018                 _T1CON 0010  
+               i1l720 00F0                 i1l715 00E4                 i1l716 00D0                 i1l717 00E3  
+               i1l718 00EF                 i1l719 00EE                 _TEMP1 0030                 _TEMP2 0032  
+               _TMR1H 000F                 _TMR1L 000E                 _PORTD 0008                 _TRISA 0085  
+               _TRISD 0088                 _table 0020        __pbitbssCOMMON 03D0                 pclath 000A  
+               status 0003                 wtemp0 007E          __end_of_ccp1 00FB          __end_of_main 00B1  
+              DELAY@i 0034             ??_ENABLE1 0036                ??_ccp1 0070                ??_main 0036  
+              ?_DELAY 0070                _ADCON1 009F                _CCP1IE 0462                _CCP1IF 0062  
+              _EEDATA 010C                _CCPR1H 0016                _CCPR1L 0015                _EECON1 018C  
+              _EECON2 018D                _ENABLE 0194                i1l2751 00B5                i1l2761 00C0  
+              i1l2753 00B7                i1l2771 00E0                i1l2763 00C7                i1l2755 00BB  
+              i1l2773 00E1                i1l2765 00CE                i1l2757 00BE                i1l2749 00B1  
+              i1l2775 00E9                i1l2759 00BF                i1l2767 00D0                i1l2769 00DC  
+              i1l2777 00EF                u230_20 00B5                u230_21 00B4                u231_20 00BB  
+              u231_21 00BA                u232_20 00E9                u232_21 00E8                _TMR1IE 0460  
+              _TMR1IF 0060                _TMR1ON 0080                _TRISC2 043A                saved_w 007E  
+       __end_of_DELAY 0148        __pcstackCOMMON 0070          __pidataBANK0 0176               ??_DELAY 0034  
+             ?_ENABLE 0070            __pbssBANK0 0030            __pmaintext 0015            __pintentry 0004  
+             _CCP1CON 0017               _ENABLE1 0186       __size_of_ENABLE 000E          __size_of_lcd 0031  
+end_of_initialization 015F               init_ram 0167        __end_of_ENABLE 01A2   start_initialization 0148  
+         __end_of_lcd 012C              ??_ENABLE 0036           __pdataBANK0 0020              ?_ENABLE1 0070  
+         __pbssCOMMON 0076         __pcstackBANK0 0034             __ptext231 00FB             __ptext232 0186  
+           __ptext233 0194             __ptext234 012C             __ptext235 00B1             __ptext236 0000  
+      __size_of_DELAY 001C     interrupt_function 0004      __size_of_ENABLE1 000E             init_fetch 0163  
+       __size_of_ccp1 004A         __size_of_main 009C              intlevel1 0000  
