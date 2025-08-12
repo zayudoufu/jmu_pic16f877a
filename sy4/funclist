@@ -1,0 +1,16 @@
+___awdiv: CODE, 924 0 118
+___aldiv: CODE, 617 0 168
+_speed_calculate: CODE, 1154 0 104
+_main: CODE, 321 0 296
+___lmul: CODE, 1258 0 76
+_DELAY: CODE, 1502 0 28
+_div: CODE, 21 0 300
+_ENABLE1: CODE, 1575 0 14
+___lldiv: CODE, 1042 0 112
+_int_serve: CODE, 785 0 139
+_ENABLE: CODE, 1589 0 14
+___wmul: CODE, 1393 0 44
+_eeprom_read: CODE, 1437 0 37
+_eeprom_write: CODE, 1334 0 59
+___bmul: CODE, 1530 0 26
+Total: 1535
